@@ -9,14 +9,18 @@ export const Container = styled.div`
     background: white;
     border-radius: 5px;
     display: inline-block;
-    position: relative;
+    position: absolute;
+    bottom: 20%;
+    right: 45%;
+    text-decoration: none;
     font-size: 16px;
     transition: all 0.3s ease 0s;
     color: #000;
+    font-family: 'Roboto', sans-serif;
 
+    
     &:hover {
-        background: #000;
-        color: #fff;
+      background: #828181;
     }
 
   }
