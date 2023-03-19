@@ -84,19 +84,13 @@ export default function Carrousel() {
                             fill={true}
                         />
                         <Speech>
-                            <p>Notre site web propose une large sélection de figurines, pièces décoratives et pièces
-                                techniques/mécaniques pour réparer des petits électroménagers et autres objets. Tous nos
-                                produits sont fabriqués avec soin à partir de matériaux de haute qualité. Commandez dès
-                                maintenant pour vous faire plaisir avec nos produits uniques.</p>
+                            <p>Notre site web propose une large sélection de figurines, pièces décoratives et pièces techniques/mécaniques pour réparer des petits électroménagers et autres objets. Tous nos produits sont fabriqués avec soin à partir de matériaux de haute qualité. Commandez dès maintenant pour vous faire plaisir avec nos produits uniques.</p>
                         </Speech>
                         <Speech
                             style={{
                                 top: "45%"
                             }}>
-                            <p>
-                                Pour suivre l'actualité de notre site, n'hésitez pas à nous suivre sur les réseaux, et à
-                                aller voir notre blog pour découvrir nos dernières nouveautés.
-                            </p>
+                            <p>Pour suivre l'actualité de notre site, n'hésitez pas à nous suivre sur les réseaux, et à aller voir notre blog pour découvrir nos dernières nouveautés.</p>
                         </Speech>
                         <Link to={"https://blog-as.hub.nbrcs.pro"} display={"Nos actualités"}/>
 

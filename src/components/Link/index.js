@@ -5,7 +5,8 @@ import arrow from "../../assets/icons/arrow_black.svg";
 const Link = ({display, to}) => {
     return (
         <Container>
-            <a href={to} target="_blank">
+            <a href={to} target="_blank"
+                rel="noreferrer">
                 {display}
                 <Arrow
                     src={arrow.src}
