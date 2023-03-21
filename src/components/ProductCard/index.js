@@ -14,7 +14,6 @@ const StyledCard = styled(Card)`
 `;
 
 
-
 export const ProductCard = ({ product, onClick }) => {
 
 

@@ -1,9 +1,23 @@
-import directus, {getCategory} from "@/utils/directus";
-import {useEffect, useState} from "react";
+import {getCategory} from "@/utils/directus";
+import {useState} from "react";
 import ProductGrid from '@/components/ProductGrid';
-import {Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@mui/material';
+import {
+    AppBar,
+    Button,
+    Container,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Toolbar,
+    Typography,
+} from '@mui/material';
+import Head from 'next/head'
+import Link from "next/link";
+import Image from "next/image";
 
-const ShopPage = ({ products }) => {
+const ShopPage = ({products}) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     const handleProductClick = (product) => {
@@ -16,30 +30,57 @@ const ShopPage = ({ products }) => {
 
     return (
         <div>
-            <ProductGrid products={products} onProductClick={handleProductClick} />
-            <Dialog open={!!selectedProduct} onClose={handleClose}>
-                {selectedProduct && (
-                    <>
-                        <DialogTitle>{selectedProduct.name}</DialogTitle>
-                        <DialogContent>
-                            <img src={`https://directus.nbrcs.pro/assets/${selectedProduct.image}`} alt={selectedProduct.name} style={{ width: '100%' }} />
-                            <DialogContentText>
-                                Prix : {selectedProduct.price} €
-                            </DialogContentText>
-                            <DialogContentText>
-                                Catégorie : {getCategory(selectedProduct.category)}
-                            </DialogContentText>
-                            <DialogContentText>
-                                Quantité : {selectedProduct.quantity}
-                            </DialogContentText>
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose}>Fermer</Button>
-                            {/* Ajoutez un bouton pour ajouter le produit au panier, si nécessaire */}
-                        </DialogActions>
-                    </>
-                )}
-            </Dialog>
+            <Head>
+                <title>Arts et Services 3D Shop</title>
+                <meta name="description" content="Boutique de figurines 3D"/>
+            </Head>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                        <Link href="/">Arts et Services 3D Shop</Link>
+                    </Typography>
+                    {/* Ici, ajoutez les autres éléments de la navbar si nécessaire */}
+                </Toolbar>
+            </AppBar>
+
+            <Container maxWidth="lg">
+                <div style={{padding: "3rem 0"}}>
+                    <Typography variant="h2" align="center">
+                        Bienvenue sur notre boutique de figurines 3D !
+                    </Typography>
+                    <Typography variant="h5" align="center">
+                        Découvrez notre large gamme de figurines imprimées en 3D.
+                    </Typography>
+                </div>
+
+
+                <ProductGrid products={products} onProductClick={handleProductClick}/>
+                <Dialog open={!!selectedProduct} onClose={handleClose}>
+                    {selectedProduct && (
+                        <>
+                            <DialogTitle>{selectedProduct.name}</DialogTitle>
+                            <DialogContent>
+                                <Image src={`https://directus.nbrcs.pro/assets/${selectedProduct.image}`}
+                                     alt={selectedProduct.name} style={{width: '100%'}}/>
+                                <DialogContentText>
+                                    Prix : {selectedProduct.price} €
+                                </DialogContentText>
+                                <DialogContentText>
+                                    Catégorie : {getCategory(selectedProduct.category)}
+                                </DialogContentText>
+                                <DialogContentText>
+                                    Quantité : {selectedProduct.quantity}
+                                </DialogContentText>
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose}>Fermer</Button>
+                                {/* Ajoutez un bouton pour ajouter le produit au panier, si nécessaire */}
+                            </DialogActions>
+                        </>
+                    )}
+                </Dialog>
+
+            </Container>
         </div>
     );
 };

@@ -6,10 +6,12 @@ import Image from "next/image";
 import ActuBanner from '../../assets/images/bg-printer.jpg'
 import SlideImage from '../../assets/images/slide3.jpg'
 import {Speech} from "./style";
-import Link from "@/components/Link";
+import LinkPage from "@/components/Link";
 import * as MUI from "@mui/material"
+import Link from "next/link";
 
 export default function Carrousel() {
+
 
     const NextArrow = ({className, style, onClick}) => {
         return (
@@ -73,141 +75,153 @@ export default function Carrousel() {
                     <Slide>
                         <MUI.Grid container>
                             <MUI.Grid item xs={12} sm={4} className={'visible'}>
-                                <MUI.Card
-                                    sx={{
-                                        borderRadius: "0",
-                                        height: "100vh",
-                                    }}
-                                >
-                                    <MUI.CardActionArea>
-                                        <MUI.CardMedia
-                                            component="img"
-                                            alt="Figurines en kit"
-                                            height="140"
-                                            title="Figurines en kit"
-                                            image="https://www.fabbaloo.com/wp-content/uploads/2020/05/image-asset_img_5eb097069d2ee.jpg"
-                                            sx={{
-                                                height: "80vh",
-                                            }}
-                                        />
-                                        <MUI.CardContent
-                                            sx={{
-                                                height: "20vh",
-                                            }}>
-                                            <MUI.Typography gutterBottom variant="h5" component="div">
-                                                Figurines en kit
-                                            </MUI.Typography>
-                                            <MUI.Typography variant="body2" color="text.secondary">
-                                                Nous proposons des figurines en kit, à assembler et peindre.
-                                            </MUI.Typography>
+                                <Link href={'/shop'}>
 
-                                        </MUI.CardContent>
-                                    </MUI.CardActionArea>
-                                </MUI.Card>
+                                    <MUI.Card
+                                        sx={{
+                                            borderRadius: "0",
+                                            height: "100vh",
+                                        }}
+                                    >
+                                        <MUI.CardActionArea>
+                                            <MUI.CardMedia
+                                                component="img"
+                                                alt="figurine"
+                                                height="140"
+                                                title="figurine"
+                                                image="https://www.fabbaloo.com/wp-content/uploads/2020/05/image-asset_img_5eb097069d2ee.jpg"
+                                                sx={{
+                                                    height: "80vh",
+                                                }}
+                                            />
+                                            <MUI.CardContent
+                                                sx={{
+                                                    height: "20vh",
+                                                }}>
+                                                <MUI.Typography gutterBottom variant="h5" component="div">
+                                                    Figurines en kit
+                                                </MUI.Typography>
+                                                <MUI.Typography variant="body2" color="text.secondary">
+                                                    Nous proposons des figurines en kit, à assembler et peindre.
+                                                </MUI.Typography>
+
+                                            </MUI.CardContent>
+                                        </MUI.CardActionArea>
+                                    </MUI.Card>
+                                </Link>
                             </MUI.Grid>
                             <MUI.Grid item xs={12} sm={4} className={'visible'}>
-                                <MUI.Card
-                                    sx={{
-                                        height: "100vh",
-                                        borderRadius: "0",
-                                    }}
-                                >
-                                    <MUI.CardActionArea>
-                                        <MUI.CardMedia
-                                            component="img"
-                                            alt="Contemplative Reptile"
-                                            height="140"
-                                            image="https://formlabs-media.formlabs.com/filer_public_thumbnails/filer_public/85/80/8580725b-d9e2-45a2-8d10-77073e3ad3b9/asc-hulk.jpg__1184x0_q85_subsampling-2.jpg"
-                                            title="Contemplative Reptile"
-                                            sx={{
-                                                height: "80vh",
-                                            }}
-                                        />
-                                        <MUI.CardContent
-                                            sx={{
-                                                height: "20vh",
-                                            }}>
-                                            <MUI.Typography gutterBottom variant="h5" component="div">
-                                                Figurines assemblées
-                                            </MUI.Typography>
-                                            <MUI.Typography variant="body2" color="text.secondary">
-                                                Nous proposons des figurines assemblées, prêtes à être peintes.
-                                            </MUI.Typography>
+                                <Link href={'/shop'}>
 
-                                        </MUI.CardContent>
-                                    </MUI.CardActionArea>
+                                    <MUI.Card
+                                        sx={{
+                                            height: "100vh",
+                                            borderRadius: "0",
+                                        }}
+                                    >
+                                        <MUI.CardActionArea>
+                                            <MUI.CardMedia
+                                                component="img"
+                                                alt="figurine"
+                                                height="140"
+                                                image="https://formlabs-media.formlabs.com/filer_public_thumbnails/filer_public/85/80/8580725b-d9e2-45a2-8d10-77073e3ad3b9/asc-hulk.jpg__1184x0_q85_subsampling-2.jpg"
+                                                title="figurine"
+                                                sx={{
+                                                    height: "80vh",
+                                                }}
+                                            />
+                                            <MUI.CardContent
+                                                sx={{
+                                                    height: "20vh",
+                                                }}>
+                                                <MUI.Typography gutterBottom variant="h5" component="div">
+                                                    Figurines assemblées
+                                                </MUI.Typography>
+                                                <MUI.Typography variant="body2" color="text.secondary">
+                                                    Nous proposons des figurines assemblées, prêtes à être peintes.
+                                                </MUI.Typography>
 
-                                </MUI.Card>
+                                            </MUI.CardContent>
+                                        </MUI.CardActionArea>
+
+                                    </MUI.Card>
+                                </Link>
                             </MUI.Grid>
                             <MUI.Grid item xs sm={4} className={'visible'}>
-                                <MUI.Card
-                                    sx={{
-                                        height: "100vh",
-                                        borderRadius: "0",
-                                    }}
-                                >
-                                    <MUI.CardActionArea>
-                                        <MUI.CardMedia
-                                            component="img"
-                                            alt="Contemplative Reptile"
-                                            height="140"
-                                            image="https://cdn3.trictrac.net/documents/formats/enlargement/documents/originals/d6/28/d4810fca8c51c5defb2eea4405fcdaad3c82ad0b9a515f8459182906ef16.jpeg"
-                                            title="Contemplative Reptile"
-                                            sx={{
-                                                height: "80vh",
-                                            }}
-                                        />
-                                        <MUI.CardContent
-                                            sx={{
-                                                height: "20vh",
-                                            }}>
-                                            <MUI.Typography gutterBottom variant="h5" component="div">
-                                                Figurines peintes
-                                            </MUI.Typography>
-                                            <MUI.Typography variant="body2" color="text.secondary">
-                                                Nous proposons des figurines peintes, prêtes à être exposées.
-                                            </MUI.Typography>
+                                <Link href={'/shop'}>
+                                    <MUI.Card
+                                        sx={{
+                                            height: "100vh",
+                                            borderRadius: "0",
+                                        }}
+                                    >
+                                        <MUI.CardActionArea>
+                                            <MUI.CardMedia
+                                                component="img"
+                                                alt="figurine"
+                                                height="140"
+                                                image="https://cdn3.trictrac.net/documents/formats/enlargement/documents/originals/d6/28/d4810fca8c51c5defb2eea4405fcdaad3c82ad0b9a515f8459182906ef16.jpeg"
+                                                title="figurine"
+                                                sx={{
+                                                    height: "80vh",
+                                                }}
+                                            />
+                                            <MUI.CardContent
+                                                sx={{
+                                                    height: "20vh",
+                                                }}>
+                                                <MUI.Typography gutterBottom variant="h5" component="div">
+                                                    Figurines peintes
+                                                </MUI.Typography>
+                                                <MUI.Typography variant="body2" color="text.secondary">
+                                                    Nous proposons des figurines peintes, prêtes à être exposées.
+                                                </MUI.Typography>
 
-                                        </MUI.CardContent>
-                                    </MUI.CardActionArea>
-                                </MUI.Card>
+                                            </MUI.CardContent>
+                                        </MUI.CardActionArea>
+                                    </MUI.Card>
+                                </Link>
+
                             </MUI.Grid>
                             <MUI.Grid item className={'hidden'}>
-                                <MUI.Card
-                                    sx={{
-                                        height: "100vh",
-                                        width: "100vw",
-                                        borderRadius: "0",
-                                    }}
-                                >
-                                    <MUI.CardActionArea>
-                                        <MUI.CardMedia
-                                            component="img"
-                                            alt="Contemplative Reptile"
-                                            height="140"
-                                            image="https://cdn3.trictrac.net/documents/formats/enlargement/documents/originals/d6/28/d4810fca8c51c5defb2eea4405fcdaad3c82ad0b9a515f8459182906ef16.jpeg"
-                                            title="Contemplative Reptile"
-                                            sx={{
-                                                height: "80vh",
-                                                objectFit: "cover",
-                                                objectPosition: "center",
-                                            }}
-                                        />
-                                        <MUI.CardContent
-                                            sx={{
-                                                height: "20vh",
-                                            }}>
-                                            <MUI.Typography gutterBottom variant="h5" component="div">
-                                                Voir le shop
-                                            </MUI.Typography>
-                                            <MUI.Typography variant="body2" color="text.secondary">
-                                                Nous proposons des figurines disponibles à l'achat dans différents
-                                                formats. Cliquer ici pour accéder au shop.
-                                            </MUI.Typography>
+                                <Link href={'/shop'}>
 
-                                        </MUI.CardContent>
-                                    </MUI.CardActionArea>
-                                </MUI.Card>
+                                    <MUI.Card
+                                        sx={{
+                                            height: "100vh",
+                                            width: "100vw",
+                                            borderRadius: "0",
+                                        }}
+                                    >
+                                        <MUI.CardActionArea>
+                                            <MUI.CardMedia
+                                                component="img"
+                                                alt="figurine"
+                                                height="140"
+                                                image="https://cdn3.trictrac.net/documents/formats/enlargement/documents/originals/d6/28/d4810fca8c51c5defb2eea4405fcdaad3c82ad0b9a515f8459182906ef16.jpeg"
+                                                title="figurine"
+                                                sx={{
+                                                    height: "80vh",
+                                                    objectFit: "cover",
+                                                    objectPosition: "center",
+                                                }}
+                                            />
+                                            <MUI.CardContent
+                                                sx={{
+                                                    height: "20vh",
+                                                }}>
+                                                <MUI.Typography gutterBottom variant="h5" component="div">
+                                                    Voir le shop
+                                                </MUI.Typography>
+                                                <MUI.Typography variant="body2" color="text.secondary">
+                                                    Nous proposons des figurines disponibles à l'achat dans différents
+                                                    formats. Cliquer ici pour accéder au shop.
+                                                </MUI.Typography>
+
+                                            </MUI.CardContent>
+                                        </MUI.CardActionArea>
+                                    </MUI.Card>
+                                </Link>
                             </MUI.Grid>
                         </MUI.Grid>
                     </Slide>
@@ -241,7 +255,7 @@ export default function Carrousel() {
                                     et à
                                     aller voir notre blog pour découvrir nos dernières nouveautés.</p>
                             </Speech>
-                            <Link to={"https://blog-as.hub.nbrcs.pro"} display={"Nos actualités"}/>
+                            <LinkPage to={"https://blog-as.hub.nbrcs.pro"} display={"Nos actualités"}/>
                         </SpeechContainer>
                     </Slide>
                     <Slide>
@@ -265,7 +279,7 @@ export default function Carrousel() {
                                     vos besoin, que ce soit pièces mécaniques, figurines ou tout autres genres sur
                                     devis</p>
                             </Speech>
-                            <Link to={"/"} display={"Demander un devis"}/>
+                            <LinkPage to={"/"} display={"Demander un devis"}/>
                         </SpeechContainer>
 
                     </Slide>

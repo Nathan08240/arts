@@ -1,9 +1,9 @@
 import { Directus } from '@directus/sdk';
 import axios from 'axios';
 
-const directus = new Directus('https://directus.nbrcs.pro/');
+// const directus = new Directus('https://directus.nbrcs.pro/');
 
-const API_BASE_URL = 'https://directus.nbrcs.pro/'; // Remplacez par l'URL de base de votre instance Directus
+const API_BASE_URL = 'https://directus.nbrcs.pro/';
 const PROJECT_NAME = 'articles';
 
 const apiClient = axios.create({
@@ -14,7 +14,6 @@ const apiClient = axios.create({
 export const fetchArticles = async () => {
     try {
         const response = await apiClient.get(`/items/${PROJECT_NAME}`);
-        console.log(response.data.data);
         return response.data.data;
     } catch (error) {
         console.error('Failed to fetch articles:', error);
@@ -34,4 +33,3 @@ export const getCategory = (category) => {
 };
 
 
-export default directus;

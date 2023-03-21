@@ -2,7 +2,7 @@ import React from 'react';
 import {Arrow, Container} from "@/components/Link/style";
 import arrow from "../../assets/icons/arrow_black.svg";
 
-const Link = ({display, to}) => {
+const LinkPage = ({display, to}) => {
     return (
         <Container>
             <a href={to} target="_blank"
@@ -19,4 +19,4 @@ const Link = ({display, to}) => {
     )
 }
 
-export default Link;
+export default LinkPage;
