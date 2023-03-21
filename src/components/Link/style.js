@@ -9,9 +9,7 @@ export const Container = styled.div`
     background: white;
     border-radius: 5px;
     display: inline-block;
-    position: absolute;
-    bottom: 20%;
-    right: 45%;
+    position: relative;
     text-decoration: none;
     font-size: 16px;
     transition: all 0.3s ease 0s;

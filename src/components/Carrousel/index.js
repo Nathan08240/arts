@@ -1,11 +1,11 @@
 import React from 'react';
 import Slider from "react-slick";
 import Head from "next/head";
-import {CarrouselContainer, Slide} from "@/components/Carrousel/style";
+import {CarrouselContainer, Slide, SpeechContainer} from "@/components/Carrousel/style";
 import Image from "next/image";
 import ActuBanner from '../../assets/images/bg-printer.jpg'
-import SlideImage from  '../../assets/images/slide3.jpg'
-import {Speech} from "@/styles/styles";
+import SlideImage from '../../assets/images/slide3.jpg'
+import {Speech} from "./style";
 import Link from "@/components/Link";
 import * as MUI from "@mui/material"
 
@@ -70,34 +70,9 @@ export default function Carrousel() {
             </Head>
             <CarrouselContainer>
                 <Slider {...settings}>
-                    <Slide >
-                        <Image
-                            src={ActuBanner}
-                            alt="bg"
-                            style={{
-                                objectFit: "cover",
-                                width: "100%",
-                                height: "100%",
-                                zIndex: -1,
-                                filter: "brightness(0.2)",
-                            }}
-                            fill={true}
-                        />
-                        <Speech>
-                            <p>Notre site web propose une large sélection de figurines, pièces décoratives et pièces techniques/mécaniques pour réparer des petits électroménagers et autres objets. Tous nos produits sont fabriqués avec soin à partir de matériaux de haute qualité. Commandez dès maintenant pour vous faire plaisir avec nos produits uniques.</p>
-                        </Speech>
-                        <Speech
-                            style={{
-                                top: "45%"
-                            }}>
-                            <p>Pour suivre l'actualité de notre site, n'hésitez pas à nous suivre sur les réseaux, et à aller voir notre blog pour découvrir nos dernières nouveautés.</p>
-                        </Speech>
-                        <Link to={"https://blog-as.hub.nbrcs.pro"} display={"Nos actualités"}/>
-
-                    </Slide>
                     <Slide>
                         <MUI.Grid container>
-                            <MUI.Grid item xs={12} sm={4}>
+                            <MUI.Grid item xs={12} sm={4} className={'visible'}>
                                 <MUI.Card
                                     sx={{
                                         borderRadius: "0",
@@ -130,7 +105,7 @@ export default function Carrousel() {
                                     </MUI.CardActionArea>
                                 </MUI.Card>
                             </MUI.Grid>
-                            <MUI.Grid item xs={12} sm={4}>
+                            <MUI.Grid item xs={12} sm={4} className={'visible'}>
                                 <MUI.Card
                                     sx={{
                                         height: "100vh",
@@ -149,9 +124,9 @@ export default function Carrousel() {
                                             }}
                                         />
                                         <MUI.CardContent
-                                        sx={{
-                                            height: "20vh",
-                                        }}>
+                                            sx={{
+                                                height: "20vh",
+                                            }}>
                                             <MUI.Typography gutterBottom variant="h5" component="div">
                                                 Figurines assemblées
                                             </MUI.Typography>
@@ -164,7 +139,7 @@ export default function Carrousel() {
 
                                 </MUI.Card>
                             </MUI.Grid>
-                            <MUI.Grid item xs sm={4}>
+                            <MUI.Grid item xs sm={4} className={'visible'}>
                                 <MUI.Card
                                     sx={{
                                         height: "100vh",
@@ -197,25 +172,102 @@ export default function Carrousel() {
                                     </MUI.CardActionArea>
                                 </MUI.Card>
                             </MUI.Grid>
+                            <MUI.Grid item className={'hidden'}>
+                                <MUI.Card
+                                    sx={{
+                                        height: "100vh",
+                                        width: "100vw",
+                                        borderRadius: "0",
+                                    }}
+                                >
+                                    <MUI.CardActionArea>
+                                        <MUI.CardMedia
+                                            component="img"
+                                            alt="Contemplative Reptile"
+                                            height="140"
+                                            image="https://cdn3.trictrac.net/documents/formats/enlargement/documents/originals/d6/28/d4810fca8c51c5defb2eea4405fcdaad3c82ad0b9a515f8459182906ef16.jpeg"
+                                            title="Contemplative Reptile"
+                                            sx={{
+                                                height: "80vh",
+                                                objectFit: "cover",
+                                                objectPosition: "center",
+                                            }}
+                                        />
+                                        <MUI.CardContent
+                                            sx={{
+                                                height: "20vh",
+                                            }}>
+                                            <MUI.Typography gutterBottom variant="h5" component="div">
+                                                Voir le shop
+                                            </MUI.Typography>
+                                            <MUI.Typography variant="body2" color="text.secondary">
+                                                Nous proposons des figurines disponibles à l'achat dans différents
+                                                formats. Cliquer ici pour accéder au shop.
+                                            </MUI.Typography>
+
+                                        </MUI.CardContent>
+                                    </MUI.CardActionArea>
+                                </MUI.Card>
+                            </MUI.Grid>
                         </MUI.Grid>
                     </Slide>
                     <Slide>
-                        <Image
-                            src={SlideImage}
-                            alt="bg"
-                            style={{
-                                objectFit: "cover",
-                                width: "100%",
-                                height: "100%",
-                                zIndex: -1,
-                                filter: "brightness(0.2)",
-                            }}
-                            fill={true}
-                        />
-                        <Speech>
-                            <p>Notre site propose également la demander une pièce sur mesures, selon votre demande et vos besoin, que ce soit pièces mécaniques, figurines ou tout autres genres sur devis</p>
-                        </Speech>
-                        <Link to={"/"} display={"Nos actualités"}/>
+                        <SpeechContainer>
+                            <Image
+                                src={ActuBanner}
+                                alt="bg"
+                                style={{
+                                    objectFit: "cover",
+                                    width: "100%",
+                                    height: "100%",
+                                    zIndex: -1,
+                                    filter: "brightness(0.2)",
+                                }}
+                                fill={true}
+                            />
+                            <Speech>
+                                <p>Notre site web propose une large sélection de figurines, pièces décoratives et pièces
+                                    techniques/mécaniques pour réparer des petits électroménagers et autres objets. Tous
+                                    nos
+                                    produits sont fabriqués avec soin à partir de matériaux de haute qualité. Commandez
+                                    dès
+                                    maintenant pour vous faire plaisir avec nos produits uniques.</p>
+                            </Speech>
+                            <Speech
+                                style={{
+                                    top: "45%"
+                                }}>
+                                <p>Pour suivre l'actualité de notre site, n'hésitez pas à nous suivre sur les réseaux,
+                                    et à
+                                    aller voir notre blog pour découvrir nos dernières nouveautés.</p>
+                            </Speech>
+                            <Link to={"https://blog-as.hub.nbrcs.pro"} display={"Nos actualités"}/>
+                        </SpeechContainer>
+                    </Slide>
+                    <Slide>
+                        <SpeechContainer>
+
+                            <Image
+                                src={SlideImage}
+                                alt="bg"
+                                style={{
+                                    objectFit: "cover",
+                                    width: "100%",
+                                    height: "100%",
+                                    zIndex: -1,
+                                    filter: "brightness(0.2)",
+                                }}
+                                fill={true}
+                            />
+                            <Speech>
+                                <p>Notre site propose également la demander une pièce sur mesures, selon votre demande
+                                    et
+                                    vos besoin, que ce soit pièces mécaniques, figurines ou tout autres genres sur
+                                    devis</p>
+                            </Speech>
+                            <Link to={"/"} display={"Demander un devis"}/>
+                        </SpeechContainer>
+
                     </Slide>
                 </Slider>
             </CarrouselContainer>
