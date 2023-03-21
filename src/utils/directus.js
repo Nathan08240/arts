@@ -1,7 +1,7 @@
 import { Directus } from '@directus/sdk';
 import axios from 'axios';
 
-// const directus = new Directus('https://directus.nbrcs.pro/');
+export const directus = new Directus('https://directus.nbrcs.pro/');
 
 const API_BASE_URL = 'https://directus.nbrcs.pro/';
 const PROJECT_NAME = 'articles';

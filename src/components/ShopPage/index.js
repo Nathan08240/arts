@@ -51,6 +51,7 @@ const ShopPage = ({products}) => {
                     <Typography variant="h5" align="center">
                         Découvrez notre large gamme de figurines imprimées en 3D.
                     </Typography>
+
                 </div>
 
 
@@ -61,7 +62,15 @@ const ShopPage = ({products}) => {
                             <DialogTitle>{selectedProduct.name}</DialogTitle>
                             <DialogContent>
                                 <Image src={`https://directus.nbrcs.pro/assets/${selectedProduct.image}`}
-                                     alt={selectedProduct.name} style={{width: '100%'}}/>
+                                       alt={selectedProduct.name}
+                                       height={300}
+                                       width={300}
+                                       style={{
+                                           display: "block",
+                                           margin: "auto",
+                                           objectFit: "contain",
+                                       }}
+                                />
                                 <DialogContentText>
                                     Prix : {selectedProduct.price} €
                                 </DialogContentText>
@@ -73,8 +82,12 @@ const ShopPage = ({products}) => {
                                 </DialogContentText>
                             </DialogContent>
                             <DialogActions>
-                                <Button onClick={handleClose}>Fermer</Button>
-                                {/* Ajoutez un bouton pour ajouter le produit au panier, si nécessaire */}
+                                <Link href={`/contact?reference=${selectedProduct.reference}`}>
+                                    <Button>
+                                        Contacter pour ce produit
+                                    </Button>
+                                </Link>
+                                <Button>Fermer</Button>
                             </DialogActions>
                         </>
                     )}

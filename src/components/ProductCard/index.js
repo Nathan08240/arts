@@ -21,16 +21,17 @@ export const ProductCard = ({ product, onClick }) => {
     return (
         <StyledCard onClick={() => onClick(product)}>
             <CardActionArea>
-                <CardMedia component="img" height="140" image={`https://directus.nbrcs.pro/assets/${product.image}`} alt={product.name} />
+                <CardMedia component="img" height="240" image={`https://directus.nbrcs.pro/assets/${product.image}`} alt={product.name} />
                 <CardContent>
+
                     <Typography gutterBottom variant="h6" component="div">
-                        {getCategory(product.category)}
-                    </Typography>
-                    <Typography gutterBottom variant="h5" component="div">
                         {product.name}
                     </Typography>
-                    <Typography gutterBottom variant="h6" component="div">
+                    <Typography gutterBottom variant="h7" component="div">
                         {product.description}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {getCategory(product.category)}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {product.price} €
