@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import { Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
+import React from 'react';
+import {Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
 import styled from 'styled-components';
-import  {getCategory} from "@/utils/directus";
 
 const StyledCard = styled(Card)`
   width: 100%;
@@ -27,12 +26,7 @@ export const ProductCard = ({ product, onClick }) => {
                     <Typography gutterBottom variant="h6" component="div">
                         {product.name}
                     </Typography>
-                    <Typography gutterBottom variant="h7" component="div">
-                        {product.description}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {getCategory(product.category)}
-                    </Typography>
+
                     <Typography variant="body2" color="text.secondary">
                         {product.price} €
                     </Typography>

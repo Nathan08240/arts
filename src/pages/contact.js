@@ -4,6 +4,7 @@ import {TextField, Button, Grid, Container, Box, Typography} from '@mui/material
 import {directus} from "@/utils/directus";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
+import Head from "next/head";
 
 const ContactForm = () => {
     const router = useRouter();
@@ -45,74 +46,79 @@ const ContactForm = () => {
     };
 
     return (
-        <Container>
-            <Box sx={{marginTop: 4}}>
-                <Typography variant="h4" align="center">
-                    Contactez le vendeur à propos de la figurine
-                </Typography>
+        <>
+            <Head>
+                <title>Contactez le vendeur</title>
+            </Head>
+            <Container>
                 <Box sx={{marginTop: 4}}>
-                    <Typography variant="h5" align="center">
-                        {product.name}
+                    <Typography variant="h4" align="center">
+                        Contactez le vendeur à propos de la figurine
                     </Typography>
-                    <Typography variant="h6" align="center">
-                        {product.price} €
-                    </Typography>
-                    <Typography variant="body1" align="center">
-                        {product.description}
-                    </Typography>
+                    <Box sx={{marginTop: 4}}>
+                        <Typography variant="h5" align="center">
+                            {product.name}
+                        </Typography>
+                        <Typography variant="h6" align="center">
+                            {product.price} €
+                        </Typography>
+                        <Typography variant="body1" align="center">
+                            {product.description}
+                        </Typography>
+                    </Box>
+
+                    <form onSubmit={sendEmail} ref={form}>
+                        <Grid container spacing={2} sx={{marginTop: 4}}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    name="name"
+                                    id="name"
+                                    label="Nom"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    name="email"
+                                    id="email"
+                                    label="Email"
+                                    type="email"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    name="message"
+                                    id="message"
+                                    label="Message"
+                                    multiline
+                                    rows={4}
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button type="submit" variant="contained" fullWidth>
+                                    Envoyer
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                    <Link href={'/shop'}
+                          passHref>
+                        <Button variant="contained" fullWidth sx={{marginTop: 4}}>
+                            Retour à la boutique
+                        </Button>
+                    </Link>
+
                 </Box>
-
-                <form onSubmit={sendEmail} ref={form}>
-                    <Grid container spacing={2} sx={{marginTop: 4}}>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                name="name"
-                                id="name"
-                                label="Nom"
-                                variant="outlined"
-                                onChange={handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                name="email"
-                                id="email"
-                                label="Email"
-                                type="email"
-                                variant="outlined"
-                                onChange={handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                name="message"
-                                id="message"
-                                label="Message"
-                                multiline
-                                rows={4}
-                                variant="outlined"
-                                onChange={handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button type="submit" variant="contained" fullWidth>
-                                Envoyer
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </form>
-                <Link href={'/shop'}
-                      passHref>
-                    <Button variant="contained" fullWidth sx={{marginTop: 4}}>
-                        Retour à la boutique
-                    </Button>
-                </Link>
-
-            </Box>
-        </Container>
+            </Container>
+        </>
     );
 };
 

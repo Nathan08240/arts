@@ -72,6 +72,9 @@ const ShopPage = ({products}) => {
                                        }}
                                 />
                                 <DialogContentText>
+                                    {selectedProduct.description}
+                                </DialogContentText>
+                                <DialogContentText>
                                     Prix : {selectedProduct.price} €
                                 </DialogContentText>
                                 <DialogContentText>
@@ -87,7 +90,10 @@ const ShopPage = ({products}) => {
                                         Contacter pour ce produit
                                     </Button>
                                 </Link>
-                                <Button>Fermer</Button>
+                                <Button
+                                    onClick={handleClose}
+                                    autoFocus
+                                >Fermer</Button>
                             </DialogActions>
                         </>
                     )}
