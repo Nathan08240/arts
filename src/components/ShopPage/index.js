@@ -16,6 +16,7 @@ import {
 import Head from 'next/head'
 import Link from "next/link";
 import Image from "next/image";
+import HeroBanner from "@/components/HeroBanner";
 
 const ShopPage = ({products}) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -34,7 +35,12 @@ const ShopPage = ({products}) => {
                 <title>Arts et Services 3D Shop</title>
                 <meta name="description" content="Boutique de figurines 3D"/>
             </Head>
-            <AppBar position="static">
+            <AppBar position="fixed"
+                    sx={{
+                        backgroundColor: "#000",
+                        color: "#fff",
+                    }}
+            >
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         <Link href="/">Arts et Services 3D Shop</Link>
@@ -44,16 +50,15 @@ const ShopPage = ({products}) => {
             </AppBar>
 
             <Container maxWidth="lg">
-                <div style={{padding: "3rem 0"}}>
-                    <Typography variant="h2" align="center">
-                        Bienvenue sur notre boutique de figurines 3D !
-                    </Typography>
-                    <Typography variant="h5" align="center">
-                        Découvrez notre large gamme de figurines imprimées en 3D.
-                    </Typography>
-
-                </div>
-
+                {/*<div style={{padding: "3rem 0"}}>*/}
+                {/*    <Typography variant="h2" align="center">*/}
+                {/*        Bienvenue sur notre boutique de figurines 3D !*/}
+                {/*    </Typography>*/}
+                {/*    <Typography variant="h5" align="center">*/}
+                {/*        Découvrez notre large gamme de figurines imprimées en 3D.*/}
+                {/*    </Typography>*/}
+                {/*</div>*/}
+                <HeroBanner/>
 
                 <ProductGrid products={products} onProductClick={handleProductClick}/>
                 <Dialog open={!!selectedProduct} onClose={handleClose}>

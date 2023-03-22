@@ -5,11 +5,17 @@ import {directus} from "@/utils/directus";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
 import Head from "next/head";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
 
 const ContactForm = () => {
     const router = useRouter();
     const {reference} = router.query;
     const [product, setProduct] = useState({});
+    const [formData, setFormData] = useState({});
+    const [sent, setSent] = useState('');
 
     useEffect(() => {
         if (reference) {
@@ -22,12 +28,10 @@ const ContactForm = () => {
             }).then((response) => {
                 setProduct(response.data[0]);
             });
-            console.log(product)
         }
     }, [reference]);
 
 
-    const [formData, setFormData] = useState({});
     const form = useRef();
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -36,12 +40,14 @@ const ContactForm = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs.sendForm(process.env.NEXT_PUBLIC_SERVICEID, process.env.NEXT_PUBLIC_TEMPLATEID, e.target, process.env.NEXT_PUBLIC_PUBLICKEY)
             .then((result) => {
-                console.log(result.text);
+                setSent('success');
+                setTimeout(() => {
+                    router.push('/shop');
+                }, 1500);
             }, (error) => {
-                console.log(error.text);
+                setSent('error');
             });
     };
 
@@ -50,6 +56,7 @@ const ContactForm = () => {
             <Head>
                 <title>Contactez le vendeur</title>
             </Head>
+
             <Container>
                 <Box sx={{marginTop: 4}}>
                     <Typography variant="h4" align="center">
@@ -115,7 +122,24 @@ const ContactForm = () => {
                             Retour à la boutique
                         </Button>
                     </Link>
-
+                    {sent === 'success' && (
+                        <Stack sx={{width: '100%',marginTop: 4}} spacing={2}>
+                            <Alert variant="filled" severity="success">
+                                <AlertTitle>Message envoyé</AlertTitle>
+                                Votre message a bien été envoyé au vendeur
+                            </Alert>
+                        </Stack>
+                    )}
+                    {
+                        !sent === 'error' && (
+                            <Stack sx={{width: '100%',marginTop: 4}} spacing={2}>
+                                <Alert variant="filled" severity="error">
+                                    <AlertTitle>Message non envoyé</AlertTitle>
+                                    Votre message n'a pas pu être envoyé au vendeur
+                                </Alert>
+                            </Stack>
+                        )
+                    }
                 </Box>
             </Container>
         </>
