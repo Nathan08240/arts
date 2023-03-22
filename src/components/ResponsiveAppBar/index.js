@@ -18,10 +18,11 @@ function ResponsiveAppBar() {
         <AppBar
             position="fixed"
             sx={{
-                backgroundColor: 'transparent',
-                color: 'white',
+                backgroundColor: 'white',
+                color: 'black',
                 boxShadow: 0,
                 zIndex : 1000,
+                opacity: 0.9,
             }}
         >
             <Container maxWidth="xl">

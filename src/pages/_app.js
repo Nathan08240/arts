@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Router } from 'next/router';
 import '../styles/globals.css';
 import LoadingPage from '../components/LoadingPage';
+import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 
 function App({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,7 @@ function App({ Component, pageProps }) {
   return (
       <>
         {isLoading && <LoadingPage />}
+        <ResponsiveAppBar/>
         <Component {...pageProps} />
       </>
   );

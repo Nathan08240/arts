@@ -37,6 +37,10 @@ const ContactForm = () => {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
 
+    const handleBack = () => {
+        router.back();
+    };
+
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -58,7 +62,7 @@ const ContactForm = () => {
             </Head>
 
             <Container>
-                <Box sx={{marginTop: 4}}>
+                <Box sx={{marginTop: 12}}>
                     <Typography variant="h4" align="center">
                         Contactez le vendeur à propos de la figurine
                     </Typography>
@@ -116,12 +120,9 @@ const ContactForm = () => {
                             </Grid>
                         </Grid>
                     </form>
-                    <Link href={'/shop'}
-                          passHref>
-                        <Button variant="contained" fullWidth sx={{marginTop: 4}}>
-                            Retour à la boutique
+                        <Button variant="contained" fullWidth sx={{marginTop: 4}} onClick={handleBack}>
+                            Retour
                         </Button>
-                    </Link>
                     {sent === 'success' && (
                         <Stack sx={{width: '100%',marginTop: 4}} spacing={2}>
                             <Alert variant="filled" severity="success">

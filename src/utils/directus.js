@@ -32,4 +32,14 @@ export const getCategory = (category) => {
     }
 };
 
+export const getProductById = async (id) => {
+    try {
+        const response = await apiClient.get(`/items/${PROJECT_NAME}/${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Failed to fetch product:', error);
+        return null;
+    }
+};
+
 
